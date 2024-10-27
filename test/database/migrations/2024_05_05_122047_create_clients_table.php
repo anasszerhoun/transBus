@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id('idClient')->autoIncrement();
             $table->string('nom',15);
             $table->string('prenom',15);
-            $table->string('pieceIdentite',10)->unique();
+            $table->string('pieceIdentite',10);
             $table->string('email',15);
             $table->string('telephone',15);
         });

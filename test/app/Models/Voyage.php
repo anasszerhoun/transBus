@@ -18,7 +18,7 @@ class Voyage extends Model
         'Prix',
         'idBus',
         'idChauffeur',
-        'idIteneraire',
+        'idItineraire',
     ];
 
 

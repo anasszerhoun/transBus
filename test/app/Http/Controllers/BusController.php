@@ -10,8 +10,8 @@ class BusController extends Controller
         $activeLink = 'buses';
         return view('buses.index', compact('buses', 'activeLink'));
     }
-    
-    
+
+
     function search(Request $request)
     {
      if($request->ajax())
@@ -20,7 +20,7 @@ class BusController extends Controller
       if($query != '')
       {
         $buses=Bus::where('immatriculation','like','%'.$request->search.'%')
-        ->orwhere('nbrPlaces','like','%'.$request->search.'%')->get(); 
+        ->orwhere('nbrPlaces','like','%'.$request->search.'%')->get();
       }
       else
       {
@@ -49,9 +49,12 @@ class BusController extends Controller
     public function update(Request $request, $id)
     {
         $Bus=$request->validate(['immatriculation' => 'required','nbrPlaces' => 'required']);
+
         $newbus = Bus::find($id);
         $newbus->immatriculation=$Bus['immatriculation'];
         $newbus->nbrPlaces=$Bus['nbrPlaces'];
+        $newbus->save();
+        
         return redirect()->route('buses.index')->with('success', 'Bus edited successfully.');
     }
 

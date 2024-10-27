@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>transBus</title>
     <link rel="stylesheet" href="bootstrap-4.6.2-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -42,7 +42,7 @@
         </nav>
         <span class="logo"><a href="#"><img src="{{ asset('images/white_on_trans.png') }}"
                     alt=""></a></span>
-        <div class="center">
+        <div class="center" id="hhh">
             <div class="form">
                 <form method="POST" action="{{ route('destination') }}">
                     @csrf
@@ -62,13 +62,14 @@
                             aria-describedby="emailHelp" placeholder="Selectionner ville d'arrivee" required>
                     </div>
                     <div class="mb-3 row container justify-content-between w-100 ">
-                        <input type="date" style="font-size:1rem;" class="form-control w-100" id=""
-                            placeholder="Date">
+                        <input type="date" style="font-size:1rem;" class="form-control w-100" id="dateDepart"
+                            placeholder="Date" name="dateDepart" required>
                     </div>
                     <div class="mb-3 ">
                         <input type="number" name="quantity" id="quantity" class="form-control col-12 ">
                     </div>
-                    <button type="submit" class="btn btn-warning" style="margin-left: 23%;">Rechercher</button>
+                    <button id="Rechercher" type="submit" class="btn btn-warning"
+                        style="margin-left: 23%;">Rechercher</button>
                 </form>
             </div>
 

@@ -23,7 +23,7 @@
                   </a>
                 </div>
             </nav>
-            <ul class="sidebar-nav">       
+            <ul class="sidebar-nav">
                 <li class="sidebar-item">
                     <a href="#" class="sidebar-link active">
                         <i class="bi bi-speedometer2" ></i>
@@ -37,9 +37,15 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">
+                    <a href="{{ route('drivers') }}" class="sidebar-link">
                         <i class="lni lni-user"></i>
                         <span>Drivers</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="{{ route('drivers') }}" class="sidebar-link">
+                        <i class="lni lni-user"></i>
+                        <span>Itineraries</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
@@ -140,7 +146,7 @@
                         </div>
                         <a href="">View More <i class="fas fa-arrow-right"></i></a>
                     </div>
-                  
+
 
                     <div id="Earning" class="info-box user-item">
                         <div class="heading">

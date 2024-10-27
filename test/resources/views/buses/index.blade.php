@@ -40,7 +40,7 @@
                             <td></td>
                             <td>
                                 @include('buses.edit',['bus' => $bus])
-                                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
+                                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editModal{{ $bus->idBus }}">Edit</button>
                             </td>
                             <td>
                                 <form method="POST" action="{{ route('buses.destroy', $bus->idBus) }}" style="display:inline">

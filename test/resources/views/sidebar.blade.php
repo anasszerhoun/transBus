@@ -12,32 +12,37 @@
             </nav>
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link {{ $activeLink === 'dashboard' ? 'active' : '' }}">
+                    <a href="{{ route('dashboard')}}" class="sidebar-link">
                         <i class="bi bi-speedometer2"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link {{ $activeLink === 'buses' ? 'active' : '' }}">
+                    <a href="{{ route('buses.index')}}" class="sidebar-link">
                         <i class="bi bi-bus-front-fill"></i>
                         <span>Buses</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link {{ $activeLink === 'drivers' ? 'active' : '' }}">
+                    <a href="{{ route('drivers')}}" class="sidebar-link">
                         <i class="lni lni-user"></i>
                         <span>Drivers</span>
                     </a>
                 </li>
-
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link {{ $activeLink === 'schedule' ? 'active' : '' }}">
-                        <i class="lni lni-popup"></i>
-                        <span>schedule</span>
+                    <a href="{{ route('itineraries')}}" class="sidebar-link">
+                        <i class="bi bi-shuffle"></i>
+                        <span>Itineraries</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link {{ $activeLink === 'settings' ? 'active' : '' }}">
+                    <a href="{{ route('schedule')}}" class="sidebar-link">
+                        <i class="lni lni-popup"></i>
+                        <span>Schedule</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link">
                         <i class="lni lni-cog"></i>
                         <span>Settings</span>
                     </a>
@@ -56,3 +61,4 @@
             </div>
         </div>
     </div>
+

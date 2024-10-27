@@ -1,7 +1,6 @@
 <?php
 namespace App\Http\Controllers;
 use PDF;
-// use Barryvdh\DomPDF\Facade as PDF;
 
 use Illuminate\Http\Request;
 use App\Models\Client;
@@ -72,6 +71,8 @@ class AcceuilController extends Controller
         $nbrplace = Bus::select('nbrPlaces')->where('idBus',  $idbus['idBus'])->first();
         $nbrTicket = Ticket::where('idVoyage', $idVoyage)->count();
         $nbrplace = (int)$nbrplace['nbrPlaces'];
+        $Date=Voyage::select('DateDepart')->where('voyages.id','=',$idVoyage)->first();
+        $dateDepart=$Date['DateDepart'];
         $nbrTicket = (int)$nbrTicket;
         if($nbrTicket < $nbrplace){
             $ticket = new Ticket();
@@ -80,7 +81,7 @@ class AcceuilController extends Controller
             $ticket->numeroPlace = (int)request("seat");
             $numeroPlace = (string) $ticket->numeroPlace;
             $ticket->save();
-            $pdf = PDF::loadView('Recu', compact('nom', 'prenom', 'pieceIdentite', 'email', 'telephone', 'numeroPlace', 'villeDepart', 'villeArrivee', 'heureDepart', 'heureArrivee', 'prix'));
+            $pdf = PDF::loadView('Recu', compact('nom', 'prenom', 'pieceIdentite','dateDepart', 'email', 'telephone', 'numeroPlace', 'villeDepart', 'villeArrivee', 'heureDepart', 'heureArrivee', 'prix'));
             $pdfFileName = "{$fullName}.pdf";
             $pdfContent = $pdf->output();
             $pdfPath = storage_path("/{$pdfFileName}");
@@ -105,10 +106,14 @@ class AcceuilController extends Controller
     {
         $villeDepart = request('depart');
         $villeArrivee = request('arrivee');
+        $dateDepart= request('dateDepart');
 
         $voyages = DB::table('voyages')
                 ->join('itineraires', 'voyages.idItineraire', '=', 'itineraires.idItineraire')
                 ->select('voyages.*', 'itineraires.VilleDepart', 'itineraires.VilleArrivee')
+                ->when($dateDepart, function ($query, $dateDepart) {
+                    return $query->where('voyages.DateDepart', '=',$dateDepart);
+                })
                 ->when($villeDepart, function ($query, $villeDepart) {
                         return $query->where('itineraires.VilleDepart', '=',$villeDepart);
                     })

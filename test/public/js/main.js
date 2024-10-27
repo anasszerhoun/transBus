@@ -7,6 +7,15 @@ function redirectToPage(event) {
     window.location.href = "ajout";
 }
 
+// let myButton = document.getElementById("Rechercher");
+// console.log(myButton);
+// myButton.onclick = function (){
+//     let myDate = document.getElementById("dateDepart");
+//     console.log(myDate)
+// }
+
+
+
 gsap.set(".form-control, .btn", {
     opacity: 0,
 });

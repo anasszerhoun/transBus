@@ -38,6 +38,7 @@
             <p><strong>Numéro de place:</strong> {{ $numeroPlace }}</p>
             <p><strong>Ville de départ:</strong> {{ $villeDepart }}</p>
             <p><strong>Ville d'arrivée:</strong> {{ $villeArrivee }}</p>
+            <p style="float: right"><strong>Date:</strong> {{ $dateDepart }}</p>
             <p><strong>Heure de départ:</strong> {{ $heureDepart }}</p>
             <p><strong>Heure d'arrivée:</strong> {{ $heureArrivee }}</p>
             <p><strong>Prix:</strong> {{ $prix }} DH</p>

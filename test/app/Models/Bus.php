@@ -9,6 +9,7 @@ class Bus extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'idBus',
         'immatriculation',
         'nbrPlaces'];
     protected $table = 'buses';

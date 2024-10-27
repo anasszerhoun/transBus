@@ -8,6 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Itineraire extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'idItineraire';
+
+    // Si 'idChauffeur' n'est pas auto-incrémenté, ajoutez cette ligne
+    public $incrementing = false;
+
+    // Si 'idChauffeur' est une chaîne (string), ajoutez cette ligne
+    protected $keyType = 'string';
     protected $fillable = [
         'idItineraire',
         'VilleDepart',
